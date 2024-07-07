@@ -255,6 +255,7 @@ namespace melatonin
         #define TRACE_COMPONENT(...)                                                                                                      \
             constexpr auto pf = melatonin::compileTimePrettierFunction (WRAP_COMPILE_TIME_STRING (PERFETTO_DEBUG_FUNCTION_IDENTIFIER())); \
             TRACE_EVENT ("component", perfetto::StaticString (pf.data()), ##__VA_ARGS__)
+        #define TRACER(name, ...) TRACE_EVENT("component", name, ##__VA_ARGS__)
     #else
         #define TRACE_COMPONENT(...)
     #endif
